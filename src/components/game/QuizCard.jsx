@@ -96,7 +96,7 @@ export const QuizCard = ({
             initial={{ scale: 0.85, y: 50, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.85, y: -50, opacity: 0 }}
-            className="w-full max-w-xl bg-white border-[6px] border-black p-6 rounded-3xl shadow-brutal flex flex-col gap-6 relative"
+            className="w-full max-w-xl bg-white border-[6px] border-black p-6 rounded-3xl shadow-brutal flex flex-col gap-6 relative text-black"
           >
             {/* Header progress info */}
             <div className="flex justify-between items-center border-b-4 border-black pb-3">
@@ -122,7 +122,7 @@ export const QuizCard = ({
             <div className="flex flex-col gap-3">
               {currentQuestion?.options.map((option, idx) => {
                 let borderClass = 'border-black';
-                let bgClass = 'bg-white hover:bg-cream';
+                let bgClass = 'bg-white text-black hover:bg-cream';
                 let icon = null;
 
                 if (isAnswered) {
