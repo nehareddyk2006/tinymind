@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FFF6E9;
+  --color-brutalPink: #FF007F;
+  --color-brutalYellow: #FFDE4D;
+  --color-brutalBlue: #4BA3E3;
+  --color-brutalGreen: #38E54D;
+  --color-brutalOrange: #FF6B35;
+  --color-brutalPurple: #7B2CBF;
+  --color-brutalNavy: #1E1E2F;
+
+  --font-sans: "Nunito", "sans-serif";
+  --font-fredoka: "Fredoka", "sans-serif";
+
+  --shadow-brutal-sm: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-lg: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-xl: 14px 14px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-active: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+
+  --animate-wobble: wobble 0.5s ease-in-out infinite;
+  --animate-wobble-slow: wobble 3s ease-in-out infinite;
+  --animate-bounce-slow: bounceSlow 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spinSlow 20s linear infinite;
+
+  @keyframes wobble {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateY(-5%); }
+    50% { transform: translateY(5%); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+  }
+  @keyframes spinSlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: #000000;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fredoka);
+    font-weight: 700;
+  }
+}
+
+/* Custom Neobrutalist Scrollbar */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF6E9;
+  border-left: 4px solid #000000;
+  border-top: 4px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF007F; /* Brutal Pink */
+  border: 4px solid #000000;
+  border-radius: 8px;
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFDE4D; /* Brutal Yellow */
+}
+
+/* Custom utility for active neobrutalist press */
+.brutal-press {
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutal-press:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px rgba(0,0,0,1);
+}
+
+.brutal-press:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+/* Card hover lift effect */
+.brutal-card-hover {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease-in-out;
+}
+
+.brutal-card-hover:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 14px 14px 0px 0px rgba(0,0,0,1);
+}
+
+/* Keyframe for retro star sparkle */
+@keyframes sparkle {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
